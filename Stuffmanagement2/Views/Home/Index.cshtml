@@ -1,0 +1,29 @@
+﻿@model Stuffmanagement2.ViewModels.HomeIndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Staff List";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>department</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var staff in Model.Staffs)
+        {
+            <tr>
+                <td>@staff.Id </td>
+                <td>@staff.FirstName @staff.LastName </td>
+                <td>@staff.Department </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
