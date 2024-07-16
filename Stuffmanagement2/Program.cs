@@ -23,6 +23,8 @@ namespace Stuffmanagement2
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
             /*app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
@@ -34,7 +36,8 @@ namespace Stuffmanagement2
 
             app.UseStaticFiles();
             app.UseFileServer();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
+            // app.UseMvcWithDefaultRoute();
             
 
             

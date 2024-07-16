@@ -1,29 +1,25 @@
-﻿@model Stuffmanagement2.ViewModels.HomeIndexViewModel
+﻿@model HomeIndexViewModel
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Staff List";
 }
 
-<table>
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>department</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var staff in Model.Staffs)
-        {
-            <tr>
-                <td>@staff.Id </td>
-                <td>@staff.FirstName @staff.LastName </td>
-                <td>@staff.Department </td>
-            </tr>
-        }
+<div class="card-group">
+    @foreach (var staff in Model.Staffs)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@staff.FirstName @staff.LastName</h3>
+            </div>
+            <img class="card-img-top" src="~/images//1.jpg" />
+            <div class="card-footer text-center">
+                <a href="#" class="btn btn-primary">View</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+    }
+    
 
-    </tbody>
-
-</table>
+</div>
 

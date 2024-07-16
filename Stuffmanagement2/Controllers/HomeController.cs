@@ -4,6 +4,7 @@ using Stuffmanagement2.ViewModels;
 
 namespace Stuffmanagement2.Controllers
 {
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly IStaffRepository _staffRepository;
@@ -12,6 +13,11 @@ namespace Stuffmanagement2.Controllers
         {
             _staffRepository = staffRepository;
         }
+
+        [Route("")]
+        [Route("/")]
+        [Route("[action]")]
+
         public ViewResult Index()
         {
             var model = _staffRepository.GetAll();
@@ -22,11 +28,13 @@ namespace Stuffmanagement2.Controllers
             return View(indexViewModel);
         }
 
+        [Route("[action]")]
         public JsonResult Data()
         {
             return Json(new { id = 17, firstname = "Hoji", lastname = "nimadur" });
         }
 
+        [Route("[action]/{id?}")]
         public ViewResult Details()
         {
             HomeDetailsViewModel viewModel = new HomeDetailsViewModel()
@@ -40,6 +48,7 @@ namespace Stuffmanagement2.Controllers
             return View(viewModel);
         }
 
+        [Route("hello")]
         public string Staff()
         {
             return _staffRepository.Get(3)?.Email;
